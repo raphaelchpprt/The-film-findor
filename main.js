@@ -1,5 +1,10 @@
-let apiKey = prompt("Rentre ici ta clée d'API OMDb couzin");
+let apiKey = prompt("Rentre ici ta clée d'API OMDb  🔑");
 let URL = `https://www.omdbapi.com/?apikey=${apiKey}&`;
+
+document.getElementById("search-form").onsubmit = (e) => {
+  e.preventDefault();
+  submitForm();
+};
 
 const selector = document.getElementById("movies");
 
@@ -90,12 +95,15 @@ const getData = (userSearch) => {
       displayFilms(movies);
     })
     .catch((error) => {
-      selector.innerHTML = `<h3 class="text-secondary text-center" id="message">🤨<br>Dsl aucun résultat ne correspond à votre recherche.</h3>`;
+      selector.innerHTML = `
+        <h3 class="text-secondary text-center" id="message">
+        🤨<br>
+        Dsl aucun résultat ne correspond à votre recherche.</h3>`;
       console.error("error:", error);
     });
 };
 
-//API request to show more about the film
+// API request to show more about the film
 const seeMore = (id) => {
   fetch(URL + `i=${id}&plot=full`)
     .then((response) => response.json())
@@ -105,9 +113,4 @@ const seeMore = (id) => {
     .catch((error) => {
       console.error("error:", error);
     });
-};
-
-document.getElementById("search-form").onsubmit = (e) => {
-  e.preventDefault();
-  submitForm();
 };
