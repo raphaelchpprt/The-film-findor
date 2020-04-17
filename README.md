@@ -1,6 +1,6 @@
 # The FilmFindor
 
-https://raphaelchpprt.github.io/thefilmfindor
+https://raphaelchpprt.github.io/the-film-findor
 
 **Enter your OMDb API key and start searching films...**
 
